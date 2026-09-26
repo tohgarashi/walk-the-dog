@@ -13,3 +13,4 @@ jobs:
           target: wasm32-unknown-unknown
           override: true
           components: clippy
+      - run: cargo install wasm-pack --version 0.15.1
