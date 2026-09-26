@@ -13,7 +13,7 @@ jobs:
           target: wasm32-unknown-unknown
           override: true
           components: clippy
-      - run: cargo install wasm-pack --version 0.15.1
+      - run: cargo install wasm-pack --version 0.15.0
       - name: Annotate commit with clippy warnings
         uses: giraffate/clippy-action@v1
         with:
