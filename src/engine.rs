@@ -249,10 +249,9 @@ enum KeyPress {
 
 fn process_input(state: &mut KeyState, keyevent_receiver: &mut UnboundedReceiver<KeyPress>) {
     loop {
-        match keyevent_receiver.try_next() {
-            Ok(None) => break,
+        match keyevent_receiver.try_recv() {
             Err(_err) => break,
-            Ok(Some(evt)) => match evt {
+            Ok(evt) => match evt {
                 KeyPress::KeyUp(evt) => state.set_released(&evt.code()),
                 KeyPress::KeyDown(evt) => state.set_pressed(&evt.code(), evt),
             },

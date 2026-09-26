@@ -232,7 +232,7 @@ struct GameOver {
 
 impl GameOver {
     fn new_game_pressed(&mut self) -> bool {
-        matches!(self.new_game_event.try_next(), Ok(Some(())))
+        matches!(self.new_game_event.try_recv(), Ok(()))
     }
 }
 
